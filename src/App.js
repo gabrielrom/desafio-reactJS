@@ -36,7 +36,7 @@ function App() {
   return (
     <div>
       <ul data-testid="repository-list">
-        {repositories.map(repository => (
+        {repositories.length > 0 ? repositories.map(repository => (
 
           <li key={repository.id}>
             <p>{repository.title}</p>
@@ -45,7 +45,11 @@ function App() {
             </button>
           </li>
 
-        ))}
+        )) : (
+          <div className="block-empty">
+            <p>Voce esta sem repositorios</p>
+          </div>
+        )}
       </ul>
 
       <button onClick={handleAddRepository}>Adicionar</button>
